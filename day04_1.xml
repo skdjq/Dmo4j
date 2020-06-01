@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<person> 
+  <p1 id="aaaa">
+    <name>zhangsan</name>
+    <name>wangwu</name>
+    <School>AHUT</School>  
+    <age>100</age>  
+    <sex>nan/nv</sex>  
+    <Weight>140</Weight> 
+  </p1>  
+  <p1 id="bbbb">
+    <name>lisi</name>  
+    <age>20</age> 
+  </p1> 
+</person>

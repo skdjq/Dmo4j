@@ -10,7 +10,7 @@ import java.util.EventListener;
 import java.util.List;
 public class dom4jTest {
     public static void main(String[] args) throws Exception {
-        deleteName(0,0);
+        selectSingleNameXPATH();
     }
     public static void selectName() throws Exception {
         /*
@@ -93,5 +93,39 @@ public class dom4jTest {
         XMLWriter xmlWriter = new XMLWriter(new FileOutputStream("src/day04/day04_1.xml"), format);
         xmlWriter.write(document);
         xmlWriter.close();
+
+    }
+    public static void selectNameXPATH() throws Exception {
+        /*
+         * 得到xml文件所有的name 标签(XPATH)
+         * 1.创建解析器
+         * 2.得到document文件
+         * 3.通过selectNodes()获得节点
+         * 4.获取节点的文本
+         * 5.输出内容
+         * */
+        SAXReader saxReader = new SAXReader();
+        Document document = saxReader.read("src/day04/day04_1.xml");
+        List<Node> list = document.selectNodes("//name");
+        for(Node node:list){
+            String s = node.getText();
+            System.out.println(s);
+        }
+    }
+    public static void selectSingleNameXPATH() throws Exception {
+        /*
+         * 得到xml文件第一个p1节点的第一个name值
+         * 1.创建解析器
+         * 2.得到document文件
+         * 3.通过selectSingleNode()获得节点
+         * 4.获取节点的文本
+         * 5.输出内容
+         * */
+        SAXReader saxReader = new SAXReader();
+        Document document = saxReader.read("src/day04/day04_1.xml");
+        Node node = document.selectSingleNode("//p1[@id='aaaa']/name");
+        String s = node.getText();
+        System.out.println(s);
     }
 }
+
